@@ -1,19 +1,12 @@
 def is_valid_IP(strng):
-    if strng == '': return False
-    print(strng)
-    if '.' not in strng: return False
-    if ' ' in strng: return False
-    for i in strng.split('.'):
-        if not is_integer(i):   return False
-        if i[0] == '0' and len(i)>1: return False
-        if int(i)<0: return False
-        if int(i)>255: return False
-    return len(strng.split('.'))==4
-
-
-def is_integer(x):
-    try:
-        int(x)
-        return True
-    except ValueError:
+    octets = strng.split('.')
+    if len(octets) != 4:
         return False
+    for octet in octets:
+        try:
+            int_octet = int(octet)
+            if int_octet < 0 or int_octet > 255 or str(int_octet) != octet:
+                return False
+        except ValueError:
+            return False
+    return True
