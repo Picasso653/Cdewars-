@@ -1,16 +1,7 @@
 int nbDig(int n, int d) {
-  int count = 0;
-  for (int i = 0; i <= n; i++) {
-    int square = i * i;
-    while (square > 0) {
-      if (square % 10 == d) {
-        count++;
-      }
-      square ~/= 10;
-    }
-  }
-  if (d == 0){
-    return count+1;
+  var count = 0;
+  for (var i = 0; i <= n; i++) {
+    count += d.toString().allMatches((i*i).toString()).length;
   }
   return count;
 }
