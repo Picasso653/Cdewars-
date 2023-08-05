@@ -15,5 +15,6 @@ def compare(a, b):
             if x[i] in y:
                 count += 50
     return str(count)+"%"
-    # I miss coding i python
-    # Sorry fo being lazy, too much work on class assignments and  things like that
+    # I miss coding in python
+
+
